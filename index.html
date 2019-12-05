@@ -2,12 +2,13 @@
 <html>
     <head>
     </head>
-    
+
+
     <body>
     
     	<nav>
-		    <a href="/" class="navbar-brand mr-0">CodeEditor</a> 
-		    <button>
+		    <a href="#">CodeEditor</a> 
+		    <button class="active" type="button" data-toggle="collapse" data-target="#close1">
 		        <span class="toggle"></span>
 		    </button>
 		    <div>
@@ -36,6 +37,49 @@
 			<div class="jezik">RESULT</div>
 			<iframe id="result"></iframe>
 		</div>
+
+
+
+        <script type="text/javascript">
+
+        	var windowHeight = $(window).height();
+        	var navBarHeigth = $("nav").height();
+        	var codeContainerHeight = windowHeight - navBarHeigth;
+
+        	$(".zakucanje").height(codeContainerHeight+"px");
+
+        	$(".toggle").click(function() {
+
+        		$(this).toggleClass("selected");
+
+        		var activeDiv = $(this).html();
+
+        		$("#"+activeDiv+"Container").toggle();
+
+        		var showingDiv = $(".codeContainer").filter(function(){
+
+        			return($(this).css("display") != "none");
+
+        		}).length;
+
+        		var width = 100/showingDiv;
+
+
+        		$(".codeContainer").css("width", width+"%");
+
+        	});
+
+        	$("#runButton").click(function() {
+
+        		$("iframe").contents().find("html").html('<style>'+$("#css").val()+'</style>'+$("#html").val());
+
+        	});
+
+        	document.getElementById("resultFrame").contentWindow.eval($("#js").val());
+
+
+        </script>
+
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </body>
