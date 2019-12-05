@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    
+    <body>
+    
+    	<nav>
+		    <a href="/" class="navbar-brand mr-0">CodeEditor</a> 
+		    <button>
+		        <span class="toggle"></span>
+		    </button>
+		    <div>
+		        <ul>
+		            <li class="closed">HTML</li>
+		            <li class="closed">CSS</li>
+		            <li class="active">RESULT</li>
+		        </ul>
+		        <button>RUN</button>
+		    </div>
+		</nav>
+
+		<div></div>
+
+		<div class="zakucanje" id="HTML">
+			<div class="jezik">HTML</div>
+			<textarea id="html"></textarea>
+		</div>
+
+		<div class="zakucanje" id="CSS">
+			<div class="jezik">CSS</div>
+			<textarea id="css"></textarea>
+		</div>
+
+		<div class="zapreview" id="ResultContainer">
+			<div class="jezik">RESULT</div>
+			<iframe id="result"></iframe>
+		</div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</body>
+</html>
