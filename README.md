@@ -1,2 +1,2 @@
 # CodeEditor
-simple code editor made in a day
+simple code editor made in a jQuery
