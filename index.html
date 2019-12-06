@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
     <head>
-	<title>Code Editor</title>
-        <meta name="description" content="Code Editor">
-        <meta name="keywords" content="Code Editor"/>
+        <title>Code Editor</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Code Editor for HTML, CSS and JS">
+        <meta name="keywords" content="code editor, html editor"/>
         <meta name="author" content="Stefan Pejcic">
         <meta name="robots" content="index,follow">
     </head>
@@ -11,36 +14,42 @@
 
     <body>
     
-    	<nav>
-		    <a href="#">CodeEditor</a> 
-		    <button class="active" type="button" data-toggle="collapse" data-target="#close1">
-		        <span class="toggle"></span>
+    	<nav class="navbar navbar-light navbar-expand-md bg-light justify-content-center">
+		    <a href="/" class="navbar-brand mr-0">CodePlayer</a> 
+		    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+		        <span class="navbar-toggler-icon"></span>
 		    </button>
-		    <div>
-		        <ul>
-		            <li class="closed">HTML</li>
-		            <li class="closed">CSS</li>
-		            <li class="active">RESULT</li>
+		    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+		        <ul class="navbar-nav mx-auto text-center" id="nav_">
+		            <li class="nav-item toggle selected">HTML</li>
+		            <li class="nav-item toggle">CSS</li>
+		            <li class="nav-item toggle">JS</li>
+		            <li class="nav-item toggle selected">RESULT</li>
 		        </ul>
-		        <button>RUN</button>
+		        <button class="btn btn-outline-primary" id="runButton">RUN</button>
 		    </div>
 		</nav>
 
-		<div></div>
+		<div class="clear"></div>
 
-		<div class="zakucanje" id="HTML">
-			<div class="jezik">HTML</div>
-			<textarea id="html"></textarea>
+		<div class="codeContainer" id="HTMLContainer">
+			<div class="codeLabel">HTML</div>
+			<textarea id="htmlCode"></textarea>
 		</div>
 
-		<div class="zakucanje" id="CSS">
-			<div class="jezik">CSS</div>
-			<textarea id="css"></textarea>
+		<div class="codeContainer" id="CSSContainer">
+			<div class="codeLabel">CSS</div>
+			<textarea id="cssCode"></textarea>
 		</div>
 
-		<div class="zapreview" id="ResultContainer">
-			<div class="jezik">RESULT</div>
-			<iframe id="result"></iframe>
+		<div class="codeContainer" id="JSContainer">
+			<div class="codeLabel">JS</div>
+			<textarea id="jsCode"></textarea>
+		</div>
+
+		<div class="codeContainer" id="ResultContainer">
+			<div class="codeLabel">RESULT</div>
+			<iframe id="resultFrame"></iframe>
 		</div>
 
 
@@ -51,7 +60,7 @@
         	var navBarHeigth = $("nav").height();
         	var codeContainerHeight = windowHeight - navBarHeigth;
 
-        	$(".zakucanje").height(codeContainerHeight+"px");
+        	$(".codeContainer").height(codeContainerHeight+"px");
 
         	$(".toggle").click(function() {
 
@@ -76,16 +85,13 @@
 
         	$("#runButton").click(function() {
 
-        		$("iframe").contents().find("html").html('<style>'+$("#css").val()+'</style>'+$("#html").val());
+        		$("iframe").contents().find("html").html('<style>'+$("#cssCode").val()+'</style>'+$("#htmlCode").val());
 
         	});
 
-        	document.getElementById("resultFrame").contentWindow.eval($("#js").val());
+        	document.getElementById("resultFrame").contentWindow.eval($("#jsCode").val());
 
 
         </script>
-
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-</body>
+    </body>
 </html>
