@@ -48,4 +48,14 @@ body {
 	display: none;
 }
 
+iframe {
+	position: relative;
+	height: 100%;
+	border: none;
+    width: 100%;
+}
 
+.selected {
+	background-color: #000;
+	color: #fff !important;
+}
